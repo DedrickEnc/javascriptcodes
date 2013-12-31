@@ -1,0 +1,58 @@
+Concenant QUnit
+---------------
+QUnit est un outil de test unitaire, permettant de tester le codes de facon rapide,
+et reutilisable tout en garantissant la prudence concernant les problemes liés aux regressions.
+
+Comment l'utiliser?
+-------------------
+
+* Dans ce repositoire vous avez tous les fichiers qu'il vous faut.
+* Si la structure de mon proget ne vous seduit pas, vous pouvez l'adapter comme bon vous semble.
+
+les etapes sont :
+
+1. Dans le dossier server-side se trouve un petit fichier server.js, c'est mon server ecrit en
+   utilisant un framework de javascript (nodejs)
+
+2. Tous les modules necessaires au fonctionnement du serveur se trouve dans le dossier node_modules
+
+3. Si vous avez des problèmes concernant l'utilisation de nodejs, svp faites un tour rapide a http://www.nodejs.org.
+   Pour une prise en main rapide mais la partie server importe peu vous pouvez utiliser votre serveur web preferé.
+
+4. Dans le dossier client-side, on trouvera un fichier index.html avec lien vers le fichier QUnit.html
+
+5. Dans le dossier client-side/vues/ on trouve le fichier QUnit.html (ce fichier nous affichera le resulatat du test).
+   A l'interieur on trouve :
+                            * un lien vers le fichier css/QUnit.css (ce trouvant dans le proget) pour la mise en forme de la page.
+                            * un lien vers le fichier js/QUnit.js (dans le proget) possedant un ensemble de fonction pour éffectuer des tests.
+                            * un lien vers le fichier js/essaies.js (dans le proget) contenant les fonctions a tester.
+                            * un lien vers le fichier js/test.js (dans le proget), chargé de lancer le test.
+
+
+
+NOTA: - La fonction test() de QUnit prend deux paramètres :
+
+		1. le premier est une chaîne de caractères indiquant l'intitulé du test;
+		2. le second est une fonction encapsulant les différents cas de tests.
+
+	  - Une première fonction QUnit nommée "ok" permet de tester une fonction booléenne : le test échoue si l’expression testée renvoie false.
+	    La fonction ok() de QUnit prend comme parametres :
+	    1. en premier un booléen;
+	    2. le second étant optionnel.
+
+	  - la fonction de comparaison equal() est utilisée pour des fonctions ne renvoyant pas des valeurs booleennes, elle prend :
+		1. en premier paramètre le résultat obtenu lors de l’appel de la fonction testée;
+		2. en deuxième paramètre le résultat attendu qui devrait être obtenu lors de l’appel de la fonction testée;
+		3. en troisième paramètre optionnel une chaîne de caractères affichées dans la page de test.
+
+	  - Mais Quand il faut comparer des donnees complexes (en notation json par exemple), on utilise deepEqual(). Cette fonction possède la meme syntaxe
+	  	que la fonction equal().
+
+	  - Pour les codes, voir l'exemple dans le fichier client-side/js/test.js
+
+	  - Les fonctionnalités sont plusieurs et c'est a vous d'approfondir.
+
+Merci!
+
+
+
