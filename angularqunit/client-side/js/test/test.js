@@ -1,9 +1,14 @@
-test(' Notre test ', function() {
+var injector = angular.injector(['ng', 'test']);
 
-    $(document).ready(function(){
-    	var scope = angular.element().scope();
-    	console.log(scope);
-	});
-}) 
+var init = {
+    setup: function() {
+        this.$scope = injector.get('$rootScope').$new();
+        this.$controller = injector.get('$controller')('sommeController', {$scope: this.$scope});
+    }
+};
 
+module('testModule', init);
 
+test('Controlleur', function() {
+    equal(this.$scope.donne(),"maman", 'le test');
+});
